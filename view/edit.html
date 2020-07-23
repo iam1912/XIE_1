@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>学生成绩管理系统</title>
+	</head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+}
+
+ul{
+	list-style-type: none;
+}
+
+#header{
+	width: 100%;
+	height: 100px;
+	background-color: #efefef;
+	text-align: center;
+}
+
+#contents{
+	display: flex;
+	height: 800px;
+	flex-wrap: wrap;
+}
+
+#nav{
+	width: 15%;
+	background-color: #d8c7a0;
+	text-align: center;
+}
+
+#section{
+	width: 85%;
+}
+
+#footer{
+	width: 100%;
+	background-color: black;
+	color: white;
+	padding: 20px;
+	text-align: center;
+}
+
+li{
+	list-style-type: none;
+	text-align: center;
+	line-height: 20px;
+	border-bottom: 1px solid;
+	border: 1px solid #d8c7a0;
+}
+</style>
+	<body>
+		<form action="/edit/xjh" method="post">
+		<div id="header">
+			<h1>学生成绩管理系统</h1>
+		</div>
+		<div id="contents">
+			<div id="nav">
+						<ul>
+							<li><a href="/index/xjh">主页</a></li>
+							<li><input type="submit" style="wdith:100%" name="change" value="学生信息列表"></li>
+							<li>查询(ID):<input type="text" style="width:40%" name="ID"><input type="submit" name="change" value="查询"></li>
+							<p><center>添加学生信息</center></p>
+							<li>编号:<input type="text" name="add"></li>
+							<li>姓名:<input type="text" name="add"></li>
+							<li>专业:<input type="text" name="add"></li>
+							<li>性别:<input type="text" name="add"></li>
+							<li>出生日期:<input type="text" name="add"></li>
+							<li>分数:<input type="text" name="add"></li>
+							<li>备注:<input type="text" name="add"></li>
+							<input type="submit" style="width:80%" name="change" value="添加">
+							<li>删除(ID):<input type="text" style="width:40%" name="IDD"><input type="submit" name="change" value="删除"></li>
+							<li><input type="submit" style="width:100%" name="change" value="学生信息排序"></li>
+							<li>修改(编号):<input type="text" style="width:40%"name="mod"></li>
+							<li>姓名:<input type="text" name="mod"></li>
+							<li>专业:<input type="text" name="mod"></li>
+							<li>性别:<input type="text" name="mod"></li>
+							<li>出生日期:<input type="text" name="mod"></li>
+							<li>分数:<input type="text" name="mod"></li>
+							<li>备注:<input type="text" name="mod"></li>
+							<input type="submit" style="width:80%" name="change" value="修改"></li>
+						</ul>
+			</div>
+			<div id="section">
+				<table border="1px" width="100%">
+					<tr>
+						<th width="15%">学号</th>
+						<th width="15%">姓名</th>
+						<th width="15%">专业</th>
+                        <th width="10%">性别</th>
+                        <th width="15%">出生日期</th>
+                        <th width="10%">分数</th>
+                        <th width="40%">备注</th>
+					</tr>
+					<td>{{range .}}<li>{{ .ID }}</li>{{end}}</td>
+					<td>{{range .}}<li>{{ .Name }}</li>{{end}}</td>
+					<td>{{range .}}<li>{{ .Major }}</li>{{end}}</td>
+					<td>{{range .}}<li>{{ .Sex }}</li>{{end}}</td>
+					<td>{{range .}}<li>{{ .Birthday }}</li>{{end}}</td>
+					<td>{{range .}}<li>{{ .Socre }}</li>{{end}}</td>
+					<td>{{range .}}<li>{{ .Note }}</li>{{end}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div id="footer">
+			<p>学生成绩管理系统</p>
+		</div>
+	</body>
+</html>
